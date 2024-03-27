@@ -1,0 +1,3 @@
+C:/Users/fumik/CLionProjects/simple-sokoban-project-Stakhov/sokoban/cmake-build-debug/CMakeFiles/sokoban.dir
+C:/Users/fumik/CLionProjects/simple-sokoban-project-Stakhov/sokoban/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/fumik/CLionProjects/simple-sokoban-project-Stakhov/sokoban/cmake-build-debug/CMakeFiles/rebuild_cache.dir
