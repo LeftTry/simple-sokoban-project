@@ -1,64 +1,38 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include "globals.h"
-#include "levels.h"
-#include "sounds.h"
+#include "level.h"
 
 #include <cstddef>
 
-void spawn_player(size_t row, size_t column) {
-    player_row = row;
-    player_column = column;
-}
-
-void move_player(int dx, int dy) {
-    int next_row    = static_cast<int>(player_row)    + dy;
-    int next_column = static_cast<int>(player_column) + dx;
-    if (!is_cell_inside_level(next_row, next_column)) {
-        return;
+class Player {
+public:
+    Player(size_t row, size_t column) {
+        player_row = row;
+        player_column = column;
     }
 
-    char &cell = get_level_cell(static_cast<size_t>(next_row), static_cast<size_t>(next_column));
-    if (cell == FLOOR || cell == GOAL) {
-        player_row    = static_cast<size_t>(next_row);
-        player_column = static_cast<size_t>(next_column);
-    } else if (cell == BOX || cell == BOX_ON_GOAL) {
-        int target_row    = next_row    + dy;
-        int target_column = next_column + dx;
-        if (!is_cell_inside_level(target_row, target_column)) {
-            return;
-        }
-        char &target_cell = get_level_cell(static_cast<size_t>(target_row), static_cast<size_t>(target_column));
-        if (target_cell == FLOOR || target_cell == GOAL) {
-            cell = cell == BOX ? FLOOR : GOAL;
-            if (target_cell == FLOOR) {
-                target_cell = BOX;
-            } else {
-                target_cell = BOX_ON_GOAL;
-                play_sound(goal_sound);
-            }
-
-            player_row    = static_cast<size_t>(next_row);
-            player_column = static_cast<size_t>(next_column);
-
-            bool level_solved = true;
-            for (size_t row = 0; level_solved && row < level.get_rows(); ++row) {
-                for (size_t column = 0; level_solved && column < level.get_columns(); ++column) {
-                    char cell_to_test = get_level_cell(row, column);
-                    if (cell_to_test == GOAL) {
-                        level_solved = false;
-                    }
-                }
-            }
-
-            if (level_solved) {
-                unload_level();
-                load_next_level();
-                play_sound(exit_sound);
-            }
-        }
+    ~Player() {
+        player_column = 0;
+        player_row = 0;
     }
-}
+
+    [[nodiscard]] size_t get_player_row() const {
+        return player_row;
+    }
+
+    [[nodiscard]] size_t get_player_column() const {
+        return player_column;
+    }
+
+    void spawn_player(size_t row, size_t column);
+
+    void move(int next_row, int next_column);
+    //bool move_player(int dx, int dy, level* Level);
+    //[[nodiscard]] player_struct make_player_struct() const;
+private:
+    size_t player_row = 0;
+    size_t player_column = 0;
+};
 
 #endif // PLAYER_H

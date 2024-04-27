@@ -2,7 +2,6 @@
 #define SOUNDS_H
 
 #include "raylib.h"
-
 #include "globals.h"
 
 void load_sounds() {

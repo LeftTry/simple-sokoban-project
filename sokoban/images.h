@@ -17,12 +17,12 @@ void unload_fonts() {
 }
 
 void load_images() {
-    wall_image        = LoadTexture("data/images/wall.png");
-    floor_image       = LoadTexture("data/images/floor.png");
-    goal_image        = LoadTexture("data/images/goal.png");
-    box_image         = LoadTexture("data/images/box.png");
+    wall_image = LoadTexture("data/images/wall.png");
+    floor_image = LoadTexture("data/images/floor.png");
+    goal_image = LoadTexture("data/images/goal.png");
+    box_image = LoadTexture("data/images/box.png");
     box_on_goal_image = LoadTexture("data/images/box-on-goal.png");
-    player_sprite     = load_sprite("data/images/player/player", ".png", 11);
+    player_sprite = load_sprite("data/images/player/player", ".png", 11);
 }
 
 void unload_images() {
@@ -39,22 +39,22 @@ void draw_image(Texture2D image, float x, float y, float size) {
 }
 
 void draw_image(Texture2D image, float x, float y, float width, float height) {
-    Rectangle source = { 0.0f, 0.0f, static_cast<float>(image.width), static_cast<float>(image.height) };
-    Rectangle destination = { x, y, width, height };
-    DrawTexturePro(image, source, destination, { 0.0f, 0.0f }, 0.0f, WHITE);
+    Rectangle source = {0.0f, 0.0f, static_cast<float>(image.width), static_cast<float>(image.height)};
+    Rectangle destination = {x, y, width, height};
+    DrawTexturePro(image, source, destination, {0.0f, 0.0f}, 0.0f, WHITE);
 }
 
 sprite load_sprite(
-    const std::string &file_name_prefix,
-    const std::string &file_name_suffix,
-    size_t frame_count,
-    bool loop,
-    size_t frames_to_skip
+        const std::string &file_name_prefix,
+        const std::string &file_name_suffix,
+        size_t frame_count,
+        bool loop,
+        size_t frames_to_skip
 ) {
     assert(frame_count < 100);
 
     sprite result = {
-        frame_count, frames_to_skip, 0, 0, loop, 0, new Texture2D[frame_count]
+            frame_count, frames_to_skip, 0, 0, loop, 0, new Texture2D[frame_count]
     };
 
     for (size_t i = 0; i < frame_count; ++i) {
