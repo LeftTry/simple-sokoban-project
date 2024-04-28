@@ -18,9 +18,6 @@ const char GOAL = '.';
 const char PLAYER = '@';
 const char PLAYER_ON_GOAL = '+';
 
-
-
-
 /* Levels */
 
 struct level_struct {

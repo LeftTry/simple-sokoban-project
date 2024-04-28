@@ -28,8 +28,7 @@ public:
     void spawn_player(size_t row, size_t column);
 
     void move(int next_row, int next_column);
-    //bool move_player(int dx, int dy, level* Level);
-    //[[nodiscard]] player_struct make_player_struct() const;
+
 private:
     size_t player_row = 0;
     size_t player_column = 0;

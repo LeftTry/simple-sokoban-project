@@ -5,7 +5,6 @@
 
 #include "vector"
 #include "iostream"
-//#include "globals.h"
 
 class level {
 public:

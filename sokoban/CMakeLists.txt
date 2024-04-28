@@ -11,5 +11,5 @@ elseif(UNIX)
 endif()
 
 add_executable(sokoban sokoban.cpp globals.h level.h player.h graphics.h images.h sounds.h player.cpp
-        level.cpp merge.h)
+        level.cpp merge.h parser.h)
 target_link_libraries(sokoban PRIVATE raylib)
