@@ -16,7 +16,7 @@ public:
         levels = parser::decode_levels_from_file("data/levels.sl");
     };
 
-    void load_next_level() {
+    void load_next_level(){
         ++level_index;
         if (level_index >= level_count) {
             level_index = 0;
@@ -173,10 +173,12 @@ public:
 
         Vector2 level_size = MeasureTextEx(menu_font, level_text.c_str(), level_font_size, 1);
         Vector2 level_position = {(screen_width - level_size.x) * 0.5f, level_top_margin};
-        DrawTextEx(menu_font, level_text.c_str(), level_position, level_font_size, 1, GAME_LEVEL_COLOR1);
+        DrawTextEx(menu_font, level_text.c_str(), level_position,
+                   level_font_size, 1, GAME_LEVEL_COLOR1);
         level_position.x -= 4 * screen_scale;
         level_position.y -= 4 * screen_scale;
-        DrawTextEx(menu_font, level_text.c_str(), level_position, level_font_size, 1, GAME_LEVEL_COLOR2);
+        DrawTextEx(menu_font, level_text.c_str(), level_position,
+                   level_font_size, 1, GAME_LEVEL_COLOR2);
     }
 
 private:
