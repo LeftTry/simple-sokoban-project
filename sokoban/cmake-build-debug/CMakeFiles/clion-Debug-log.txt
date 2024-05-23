@@ -1,0 +1,37 @@
+"C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2023.2.1/bin/ninja/win/x64/ninja.exe" "-DCMAKE_TOOLCHAIN_FILE=C:\Users\fumik\.vcpkg-clion\vcpkg (1)\scripts\buildsystems\vcpkg.cmake" -G Ninja -S C:\Users\fumik\CLionProjects\simple-sokoban-project-Stakhov\sokoban -B C:\Users\fumik\CLionProjects\simple-sokoban-project-Stakhov\sokoban\cmake-build-debug
+-- Running vcpkg install
+Detecting compiler hash for triplet x64-windows...
+All requested packages are currently installed.
+Total install time: 1.4 us
+glfw3 provides CMake targets:
+
+  # this is heuristically generated, and may not be correct
+  find_package(glfw3 CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE glfw)
+
+glfw3 provides pkg-config modules:
+
+    # A multi-platform library for OpenGL, window and input
+    glfw3
+
+raylib provides CMake targets:
+
+  # this is heuristically generated, and may not be correct
+  find_package(raylib CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE raylib)
+
+raylib provides pkg-config modules:
+
+    # A simple and easy-to-use library to enjoy videogames programming
+    raylib
+
+-- Running vcpkg install - done
+-- Configuring done (4.1s)
+-- Generating done (0.1s)
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    CMAKE_TOOLCHAIN_FILE
+
+
+-- Build files have been written to: C:/Users/fumik/CLionProjects/simple-sokoban-project-Stakhov/sokoban/cmake-build-debug
